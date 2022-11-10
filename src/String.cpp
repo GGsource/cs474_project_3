@@ -17,3 +17,5 @@ String::String(const char charArray[]) {
 	char_[size_] = '\0';
 	std::cout << "array is now: " << char_ << std::endl;
 }
+
+String::~String() { delete[] char_; }

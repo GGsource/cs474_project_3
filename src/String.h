@@ -6,4 +6,6 @@ class String {
 	String(const char charArray[]);
 	// Copy Constructor
 	String(const String &s);
+	// Destructor
+	~String();
 };
