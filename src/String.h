@@ -8,4 +8,8 @@ class String {
 	String(const String &s);
 	// Destructor
 	~String();
+	// Combine Strings
+	// String operator+(const String &rString);
+	// // Concatenate to string
+	// String &operator+=(const String &rString);
 };
