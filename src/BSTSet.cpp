@@ -2,6 +2,14 @@
 #include <iostream>
 #include <ostream>
 
+BSTSet::BSTNode::BSTNode(String val) : value(val) {
+	std::cout << "Entered BSTNode constructor!" << std::endl; // DEBUGGING:
+	leftChild = nullptr;
+	rightChild = nullptr;
+	std::cout << "Successfully got through BSTNode constructor!"
+			  << std::endl; // DEBUGGING:
+}
+
 BSTSet::BSTSet() {
 	head = nullptr;
 	set_size = 0;
@@ -63,7 +71,7 @@ void BSTSet::addString(const String &s) {
 	set_size += 1;
 }
 
-String printTree(BSTNode *head) {
+String printTree(BSTSet::BSTNode *head) {
 	// std::cout << "now attempting to print tree" << std::endl; // DEBUGGING:
 	if (head == nullptr)
 		return String("");

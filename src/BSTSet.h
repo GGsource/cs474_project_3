@@ -1,6 +1,15 @@
-#include "BSTNode.h"
+#include "String.h"
 class BSTSet {
   public:
+	class BSTNode {
+	  public:
+		String value;
+		BSTNode *leftChild;
+		BSTNode *rightChild;
+		BSTNode(String val);
+		// TODO: Check if we need a custom  destructor here
+	};
+
 	BSTSet();
 	BSTSet(BSTSet &tree);
 	~BSTSet();
