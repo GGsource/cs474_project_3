@@ -23,4 +23,6 @@ class BSTSet {
 	void clear();
 	void recursiveDestruction(const BSTNode *head);
 	void swap(BSTSet &s2);
+	bool contains(const CustomString &s) const;
+	bool isProperSubset(const BSTSet &s2);
 };

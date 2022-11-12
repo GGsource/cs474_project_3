@@ -3,11 +3,11 @@
 #include <ostream>
 
 BSTSet::BSTNode::BSTNode(CustomString val) : value(val) {
-	std::cout << "Entered BSTNode constructor!" << std::endl; // DEBUGGING:
+	// std::cout << "Entered BSTNode constructor!" << std::endl; // DEBUGGING:
 	leftChild = nullptr;
 	rightChild = nullptr;
-	std::cout << "Successfully got through BSTNode constructor!"
-			  << std::endl; // DEBUGGING:
+	// std::cout << "Successfully got through BSTNode constructor!"
+	// 		  << std::endl; // DEBUGGING:
 }
 
 BSTSet::BSTSet() {
@@ -98,6 +98,48 @@ void BSTSet::clear() {
 
 void BSTSet::swap(BSTSet &s2) {
 	BSTNode *temp = this->head;
+	int size_temp = this->set_size;
 	this->head = s2.head;
+	this->set_size = s2.set_size;
 	s2.head = temp;
+	s2.set_size = size_temp;
+}
+
+bool _contains(const CustomString &s, BSTSet::BSTNode *node) {
+	if (node == nullptr)
+		return false; // Empty node, does not contain
+	if (s == node->value) {
+		return true;
+	} else if (s < node->value) {
+		return _contains(s, node->leftChild);
+	} else {
+		return _contains(s, node->rightChild);
+	}
+}
+
+bool BSTSet::contains(const CustomString &s) const {
+	if (this->head == nullptr)
+		return false; // Empty node, does not contain
+	if (s == head->value) {
+		return true;
+	} else if (s < head->value) {
+		return _contains(s, head->leftChild);
+	} else {
+		return _contains(s, head->rightChild);
+	}
+}
+
+// Iterates through S2 and sends to S1 for checking if contained
+bool containedIn(BSTSet *s1, BSTSet::BSTNode *node) {
+	if (node == nullptr)
+		return true;
+	return containedIn(s1, node->leftChild) && s1->contains(node->value) &&
+		   containedIn(s1, node->rightChild);
+}
+
+bool BSTSet::isProperSubset(const BSTSet &s2) {
+	if (this->set_size <= s2.set_size)
+		return false; // S1 is not larger so S2 cannot possibly be proper subset
+
+	return containedIn(this, s2.head);
 }

@@ -23,7 +23,7 @@ void printInstructions() {
 		<< "\x1B[94mb - Subset operation\033[0m. This command compares S1 "
 		   "and S2 and "
 		   "prints an appropriate message on the console indicating "
-		   "whether S2 is a proper subset of S2. Two strings are deemed to "
+		   "whether S2 is a proper subset of S1. Two strings are deemed to "
 		   "be equal if they have the same length and content; however, "
 		   "the comparison is case sensitive. S1 and S2 are not modified"
 		<< std::endl;
@@ -75,6 +75,7 @@ int main() {
 		std::cout << std::endl << "Please enter your command: ";
 		char input;
 		std::cin >> input;
+		std::cout << std::endl;
 		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
 		case 'e': // Erase S1
@@ -84,8 +85,10 @@ int main() {
 			s1.swap(s2);
 			break;
 		case 'b':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
+			if (s1.isProperSubset(s2)) {
+				std::cout << "S2 is a proper subset of S1." << std::endl;
+			} else
+				std::cout << "S2 is NOT a proper subset of S1." << std::endl;
 			break;
 		case 'c':
 			std::cout << input << " command not yet implemented..."
@@ -120,7 +123,7 @@ int main() {
 					  << std::endl;
 			break;
 		}
-		// DEBUGGING:
+		std::cout << std::endl;
 	}
 	std::cout << "Exiting, goodbye!" << std::endl; // IDEA: Colorme
 	return 0;
