@@ -1,6 +1,11 @@
 #include "BSTSet.h"
 #include <iostream>
 
+// Colorize console output
+String colorText(const char *c) {
+	return String(String("\x1B[94m") + String(c) + String("\033[0m"));
+};
+
 // Function to print the instructions for the user
 void printInstructions() {
 	std::cout << "\x1B[94me - Erase set\033[0m. This command allows "
@@ -60,12 +65,12 @@ void printInstructions() {
 }
 
 int main() {
+	std::cout << colorText("Welcome to CS 474 Project 3") << std::endl;
 	BSTSet s1;
 	BSTSet s2;
 	bool isEnded = false;
 	while (!isEnded) {
 		char input;
-		std::cout << "Welcome to CS 474 Project 3" << std::endl;
 		printInstructions();
 		std::cin >> input;
 		char newString[20]{};
@@ -87,8 +92,3 @@ int main() {
 	std::cout << "Exiting program, goodbye!" << std::endl;
 	return 0;
 }
-
-// Colorize console output
-// char* colorText(char & c ) {
-// 	char cp[] = {"\x1B[94m""\033[0m"};
-// };
