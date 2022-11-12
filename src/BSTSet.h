@@ -25,4 +25,5 @@ class BSTSet {
 	void swap(BSTSet &s2);
 	bool contains(const CustomString &s) const;
 	bool isProperSubset(const BSTSet &s2);
+	void recursiveCopy(BSTNode *node);
 };

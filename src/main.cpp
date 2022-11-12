@@ -103,8 +103,7 @@ int main() {
 			s1->addString(newString);
 			break;
 		case 'u':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
+			s1->recursiveCopy(s2->head);
 			break;
 		case 'i':
 			std::cout << input << " command not yet implemented..."

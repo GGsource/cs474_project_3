@@ -15,19 +15,19 @@ BSTSet::BSTSet() {
 	set_size = 0;
 }
 
-void recursiveCopy(BSTSet *target, BSTSet::BSTNode *node) {
+void BSTSet::recursiveCopy(BSTSet::BSTNode *node) {
 	if (node == nullptr)
 		return;
-	target->addString(node->value);
-	recursiveCopy(target, node->leftChild);
-	recursiveCopy(target, node->rightChild);
+	this->addString(node->value);
+	recursiveCopy(node->leftChild);
+	recursiveCopy(node->rightChild);
 }
 
 BSTSet::BSTSet(BSTSet &tree) {
 	// TODO: Implement copy constructor for BST
 	head = nullptr;
 	set_size = 0;
-	recursiveCopy(this, tree.head);
+	this->recursiveCopy(tree.head);
 }
 
 // Recursively traverses and destroys nodes bottom to top
