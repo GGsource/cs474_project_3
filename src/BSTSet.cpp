@@ -15,11 +15,22 @@ BSTSet::BSTSet() {
 	set_size = 0;
 }
 
+void recursiveCopy(BSTSet *target, BSTSet::BSTNode *node) {
+	if (node == nullptr)
+		return;
+	target->addString(node->value);
+	recursiveCopy(target, node->leftChild);
+	recursiveCopy(target, node->rightChild);
+}
+
 BSTSet::BSTSet(BSTSet &tree) {
 	// TODO: Implement copy constructor for BST
-	std::cout << "called BSTSet copy constructor but not yet implemented..."
-			  << std::endl;
+	head = nullptr;
+	set_size = 0;
+	recursiveCopy(this, tree.head);
 }
+
+// Recursively traverses and destroys nodes bottom to top
 void BSTSet::recursiveDestruction(const BSTSet::BSTNode *node) {
 	if (node != nullptr) {
 		recursiveDestruction(node->leftChild);
@@ -29,7 +40,7 @@ void BSTSet::recursiveDestruction(const BSTSet::BSTNode *node) {
 }
 
 BSTSet::~BSTSet() {
-	// TODO: Implement Desctructor for BST
+	// DONE: Implement Desctructor for BST
 	recursiveDestruction(this->head);
 }
 
@@ -90,8 +101,7 @@ std::ostream &operator<<(std::ostream &os, const BSTSet &set) {
 }
 
 void BSTSet::clear() {
-	recursiveDestruction(this->head);
-	// std::cout << "successfully destroyed to clear " << std::endl;
+	this->~BSTSet();
 	head = nullptr;
 	set_size = 0;
 }

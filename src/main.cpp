@@ -65,13 +65,13 @@ void printInstructions() {
 
 int main() {
 	std::cout << colorText("Welcome to CS 474 Project 3") << std::endl;
-	BSTSet s1;
-	BSTSet s2;
+	BSTSet *s1 = new BSTSet;
+	BSTSet *s2 = new BSTSet;
 	bool isEnded = false;
 	while (!isEnded) {
 		printInstructions();
 		// TODO: Make the sets printing be green or something else
-		std::cout << "s1: " << s1 << std::endl << "s2: " << s2 << std::endl;
+		std::cout << "s1: " << *s1 << std::endl << "s2: " << *s2 << std::endl;
 		std::cout << std::endl << "Please enter your command: ";
 		char input;
 		std::cin >> input;
@@ -79,20 +79,19 @@ int main() {
 		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
 		case 'e': // Erase S1
-			s1.clear();
+			s1->clear();
 			break;
 		case 's': // Swap sets by switching pointers
-			s1.swap(s2);
+			s1->swap(*s2);
 			break;
 		case 'b':
-			if (s1.isProperSubset(s2)) {
+			if (s1->isProperSubset(*s2)) {
 				std::cout << "S2 is a proper subset of S1." << std::endl;
 			} else
 				std::cout << "S2 is NOT a proper subset of S1." << std::endl;
 			break;
 		case 'c':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
+			s2 = new BSTSet(*s1);
 			break;
 		case 'l':
 			std::cout << input << " command not yet implemented..."
@@ -101,7 +100,7 @@ int main() {
 		case 'a':
 			std::cout << "Specify string to add: ";
 			std::cin >> newString;
-			s1.addString(newString);
+			s1->addString(newString);
 			break;
 		case 'u':
 			std::cout << input << " command not yet implemented..."
