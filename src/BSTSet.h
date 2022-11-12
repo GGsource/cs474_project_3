@@ -26,4 +26,5 @@ class BSTSet {
 	bool contains(const CustomString &s) const;
 	bool isProperSubset(const BSTSet &s2);
 	void recursiveCopy(BSTNode *node);
+	void recursiveIntersect(BSTNode *node, BSTSet *s3);
 };

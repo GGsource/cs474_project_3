@@ -23,8 +23,17 @@ void BSTSet::recursiveCopy(BSTSet::BSTNode *node) {
 	recursiveCopy(node->rightChild);
 }
 
+void BSTSet::recursiveIntersect(BSTNode *node, BSTSet *s3) {
+	if (node == nullptr)
+		return;
+	if (this->contains(node->value))
+		s3->addString(node->value);
+	recursiveIntersect(node->leftChild, s3);
+	recursiveIntersect(node->rightChild, s3);
+}
+
 BSTSet::BSTSet(BSTSet &tree) {
-	// TODO: Implement copy constructor for BST
+	// DONE: Implement copy constructor for BST
 	head = nullptr;
 	set_size = 0;
 	this->recursiveCopy(tree.head);

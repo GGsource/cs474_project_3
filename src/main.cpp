@@ -76,7 +76,6 @@ int main() {
 		char input;
 		std::cin >> input;
 		std::cout << std::endl;
-		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
 		case 'e': // Erase S1
 			s1->clear();
@@ -94,21 +93,24 @@ int main() {
 			s2 = new BSTSet(*s1);
 			break;
 		case 'l':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
+			std::cout << "Listing out current BSTs:" << std::endl;
+			std::cout << "    s1: " << *s1 << std::endl
+					  << "    s2: " << *s2 << std::endl;
 			break;
-		case 'a':
+		case 'a': {
+			char newString[20]{}; // FIXME: should not be 20, should be input
 			std::cout << "Specify string to add: ";
 			std::cin >> newString;
 			s1->addString(newString);
-			break;
+		} break;
 		case 'u':
 			s1->recursiveCopy(s2->head);
 			break;
-		case 'i':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
-			break;
+		case 'i': {
+			BSTSet *s3 = new BSTSet;
+			s1->recursiveIntersect(s2->head, s3);
+			s1 = s3;
+		} break;
 		case 'q':
 			isEnded = true;
 			std::cout << "quitting program, final Sets were:" << std::endl;
