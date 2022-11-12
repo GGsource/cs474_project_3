@@ -77,12 +77,11 @@ int main() {
 		std::cin >> input;
 		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
-		case 'e':
+		case 'e': // Erase S1
 			s1.clear();
 			break;
-		case 's':
-			std::cout << input << " command not yet implemented..."
-					  << std::endl; // DELETEME
+		case 's': // Swap sets by switching pointers
+			s1.swap(s2);
 			break;
 		case 'b':
 			std::cout << input << " command not yet implemented..."

@@ -22,4 +22,5 @@ class BSTSet {
 
 	void clear();
 	void recursiveDestruction(const BSTNode *head);
+	void swap(BSTSet &s2);
 };

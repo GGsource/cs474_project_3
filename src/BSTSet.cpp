@@ -45,11 +45,10 @@ void BSTSet::addString(const CustomString &s) {
 		// 		  << std::endl; // DEBUGGING
 
 	} else {
-		std::cout << "somehow entered else!!" << std::endl; // DEBUGGING
+		// std::cout << "somehow entered else!!" << std::endl; // DEBUGGING
 		BSTNode *curNode = head;
 		BSTNode *prevNode = head;
 
-		// TODO: Check piazza for if this should be case insensitive
 		while (curNode != nullptr) {
 			prevNode = curNode;
 			if (s == curNode->value) {
@@ -95,4 +94,10 @@ void BSTSet::clear() {
 	// std::cout << "successfully destroyed to clear " << std::endl;
 	head = nullptr;
 	set_size = 0;
+}
+
+void BSTSet::swap(BSTSet &s2) {
+	BSTNode *temp = this->head;
+	this->head = s2.head;
+	s2.head = temp;
 }
