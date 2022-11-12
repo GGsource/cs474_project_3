@@ -2,9 +2,9 @@
 #include <iostream>
 
 int main() {
-	String s1("I am string 1");
-	String s2("And I am string 2!!");
-	String s3(s1 + s2);
+	CustomString s1("I am string 1");
+	CustomString s2("And I am string 2!!");
+	CustomString s3(s1 + s2);
 	// DONE: String constructor tested
 	// DONE: String Copy Constructor tested
 	// DONE: String concatenation tested

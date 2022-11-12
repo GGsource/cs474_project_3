@@ -1,12 +1,12 @@
-#include "String.h"
+#include "CustomString.h"
 class BSTSet {
   public:
 	class BSTNode {
 	  public:
-		String value;
+		CustomString value;
 		BSTNode *leftChild;
 		BSTNode *rightChild;
-		BSTNode(String val);
+		BSTNode(CustomString val);
 		// TODO: Check if we need a custom  destructor here
 	};
 
@@ -17,6 +17,9 @@ class BSTSet {
 	BSTNode *head;
 	int set_size;
 
-	void addString(const String &s);
+	void addString(const CustomString &s);
 	friend std::ostream &operator<<(std::ostream &os, const BSTSet &set);
+
+	void clear();
+	void recursiveDestruction(const BSTNode *head);
 };

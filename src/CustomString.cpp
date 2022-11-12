@@ -1,10 +1,16 @@
-#include "String.h"
+#include "CustomString.h"
 #include <iostream>
 #include <string.h>
 // Custom String class
 
+// Default constructor - empty string object
+CustomString::CustomString() {
+	this->size_ = 0;
+	this->char_ = new char[1]{'\0'};
+}
+
 // Main constructor - takes char array to initialize
-String::String(const char charArray[]) {
+CustomString::CustomString(const char charArray[]) {
 	this->size_ = strlen(charArray);
 	// std::cout << "array size is: " << size_ << std::endl;
 	this->char_ = new char[size_ + 1];
@@ -15,13 +21,13 @@ String::String(const char charArray[]) {
 	// std::cout << "array is now: " << char_ << std::endl;
 }
 // DONE: copy constructor
-String::String(const String &s) : String(s.char_) {}
+CustomString::CustomString(const CustomString &s) : CustomString(s.char_) {}
 
 // DONE: destructor
-String::~String() { delete[] char_; }
+CustomString::~CustomString() { delete[] char_; }
 
 // DONE: concatenation of 2 strings
-String String::operator+(const String &rString) {
+CustomString CustomString::operator+(const CustomString &rString) {
 	int newSize = this->size_ + rString.size_;
 	char newArr[newSize];
 	newArr[newSize] = '\0'; // Set the end to terminate
@@ -31,14 +37,14 @@ String String::operator+(const String &rString) {
 	for (int i = this->size_; i < newSize; i++) {
 		newArr[i] = rString.char_[i - (this->size_)];
 	}
-	return String(newArr);
+	return CustomString(newArr);
 };
 // 	// Concatenate to string
 // String& String::operator += (const String& rString) {
 
 // };
 
-bool String::operator==(const String &s) const {
+bool CustomString::operator==(const CustomString &s) const {
 	// DONE: Implement comparison of strings
 	if (s.size_ != this->size_) // If they're different sizes they're not equal
 		return false;
@@ -49,14 +55,14 @@ bool String::operator==(const String &s) const {
 	return true; // All was same, they're equal!
 }
 
-std::ostream &operator<<(std::ostream &os, const String &s) {
+std::ostream &operator<<(std::ostream &os, const CustomString &s) {
 	// DONE: Make String function with std::cout
 	return os << s.char_;
 }
 
-bool String::operator<(const String &s) const {
+bool CustomString::operator<(const CustomString &s) const {
 	// DONE: Implement less than comparison
-	const String *smallest;
+	const CustomString *smallest;
 	int min;
 	if (this->size_ <= s.size_) {
 		smallest = this;
@@ -78,9 +84,9 @@ bool String::operator<(const String &s) const {
 	else
 		return false;
 }
-bool String::operator>(const String &s) const {
+bool CustomString::operator>(const CustomString &s) const {
 	// DONE: Implement greater than comparison
-	const String *smallest;
+	const CustomString *smallest;
 	int min;
 	if (this->size_ <= s.size_) {
 		smallest = this;
@@ -102,8 +108,3 @@ bool String::operator>(const String &s) const {
 	else
 		return true;
 }
-
-// TODO: deep copy, needed for initializing a node with a string
-// void String::operator=(const String &s) const {
-// 	if (this == NULL)
-// }

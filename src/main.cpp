@@ -2,8 +2,9 @@
 #include <iostream>
 
 // Colorize console output
-String colorText(const char *c) {
-	return String(String("\x1B[94m") + String(c) + String("\033[0m"));
+CustomString colorText(const char *c) {
+	return CustomString(CustomString("\x1B[94m") + CustomString(c) +
+						CustomString("\033[0m"));
 };
 
 // Function to print the instructions for the user
@@ -68,27 +69,60 @@ int main() {
 	BSTSet s2;
 	bool isEnded = false;
 	while (!isEnded) {
-		char input;
 		printInstructions();
+		// TODO: Make the sets printing be green or something else
 		std::cout << "s1: " << s1 << std::endl << "s2: " << s2 << std::endl;
 		std::cout << std::endl << "Please enter your command: ";
+		char input;
 		std::cin >> input;
 		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
+		case 'e':
+			s1.clear();
+			break;
+		case 's':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
+		case 'b':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
+		case 'c':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
+		case 'l':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
 		case 'a':
 			std::cout << "Specify string to add: ";
 			std::cin >> newString;
 			s1.addString(newString);
 			break;
+		case 'u':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
+		case 'i':
+			std::cout << input << " command not yet implemented..."
+					  << std::endl; // DELETEME
+			break;
 		case 'q':
 			isEnded = true;
-			std::cout << "quitting!" << std::endl;
+			std::cout << "quitting program, final Sets were:" << std::endl;
+			std::cout << "s1: " << s1 << std::endl
+					  << "s2: " << s2 << std::endl
+					  << std::endl;
+			break;
 		default:
+			std::cout << input << " command not recognized, try again."
+					  << std::endl;
 			break;
 		}
 		// DEBUGGING:
-		std::cout << "Your input was " << input << std::endl;
 	}
-	std::cout << "Exiting program, goodbye!" << std::endl;
+	std::cout << "Exiting, goodbye!" << std::endl; // IDEA: Colorme
 	return 0;
 }
