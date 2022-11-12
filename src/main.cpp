@@ -60,8 +60,6 @@ void printInstructions() {
 	std::cout << "\x1B[94mq - Quit\033[0m. Prints sets S1 and S2 and quits "
 				 "the set manager."
 			  << std::endl;
-
-	std::cout << std::endl << "Please enter your command: ";
 }
 
 int main() {
@@ -72,8 +70,10 @@ int main() {
 	while (!isEnded) {
 		char input;
 		printInstructions();
+		std::cout << "s1: " << s1 << std::endl << "s2: " << s2 << std::endl;
+		std::cout << std::endl << "Please enter your command: ";
 		std::cin >> input;
-		char newString[20]{};
+		char newString[20]{}; // FIXME: should not be 20, should depend on input
 		switch (input) {
 		case 'a':
 			std::cout << "Specify string to add: ";

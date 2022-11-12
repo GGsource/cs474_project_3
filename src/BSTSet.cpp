@@ -33,13 +33,13 @@ BSTSet::~BSTSet() {
 // Add string to the set
 void BSTSet::addString(const String &s) {
 	if (head == nullptr) {
-		std::cout << "head was null! setting new node with " << s
-				  << std::endl; // DEBUGGING:
+		// std::cout << "head was null! setting new node with " << s
+		// 		  << std::endl; // DEBUGGING:
 		head = new BSTNode(s);
-		std::cout << "Successfully created newnode which contains "
-				  << head->value << std::endl; // DEBUGGING:
-		std::cout << "Finished setting head to new BSTNode!"
-				  << std::endl; // DEBUGGING
+		// std::cout << "Successfully created newnode which contains "
+		// 		  << head->value << std::endl; // DEBUGGING:
+		// std::cout << "Finished setting head to new BSTNode!"
+		// 		  << std::endl; // DEBUGGING
 
 	} else {
 		std::cout << "somehow entered else!!" << std::endl; // DEBUGGING
@@ -75,7 +75,7 @@ String printTree(BSTSet::BSTNode *head) {
 	// std::cout << "now attempting to print tree" << std::endl; // DEBUGGING:
 	if (head == nullptr)
 		return String("");
-	return printTree(head->leftChild) + head->value +
+	return printTree(head->leftChild) + "\'" + head->value + "\' " +
 		   printTree(head->rightChild);
 }
 
