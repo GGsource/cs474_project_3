@@ -105,6 +105,7 @@ void BSTSet::swap(BSTSet &s2) {
 	s2.set_size = size_temp;
 }
 
+// Helper function for binary search of BST
 bool _contains(const CustomString &s, BSTSet::BSTNode *node) {
 	if (node == nullptr)
 		return false; // Empty node, does not contain
@@ -117,6 +118,7 @@ bool _contains(const CustomString &s, BSTSet::BSTNode *node) {
 	}
 }
 
+// Binary searches this BST looking for string s
 bool BSTSet::contains(const CustomString &s) const {
 	if (this->head == nullptr)
 		return false; // Empty node, does not contain
