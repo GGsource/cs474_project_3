@@ -29,3 +29,5 @@
 
 1. If neither of these is an option, the project can be compiled directly by typing the following on the command line: `g++ .\src\main.cpp .\src\colorize.cpp .\src\CustomString.cpp .\src\BSTSet.cpp -Wall -o output.exe`.
 2. Now that it is compiled, do `.\output.exe` to run the compiled file.
+
+Commands for using the BST Set calculator are presented when the program begins and after every loop.
