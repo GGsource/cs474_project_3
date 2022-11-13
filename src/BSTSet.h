@@ -7,7 +7,6 @@ class BSTSet {
 		BSTNode *leftChild;
 		BSTNode *rightChild;
 		BSTNode(CustomString val);
-		// TODO: Check if we need a custom  destructor here
 	};
 
 	BSTSet();
