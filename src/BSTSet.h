@@ -1,4 +1,4 @@
-#include "CustomString.h"
+#include "colorize.h"
 class BSTSet {
   public:
 	class BSTNode {

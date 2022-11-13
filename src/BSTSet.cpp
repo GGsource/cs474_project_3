@@ -73,10 +73,13 @@ void BSTSet::addString(const CustomString &s) {
 			prevNode = curNode;
 			if (s == curNode->value) {
 				// This is a set so no identical strings allowed
-				std::cout << s
-						  << " is already a string in this set! Nothing was "
-							 "added" // TODO: Make this be yellow
-						  << std::endl;
+				std::cout
+					<< colorText(s, "33")
+					<< colorText(
+						   " is already a string in this set! Nothing was "
+						   "added.",
+						   "33")
+					<< std::endl;
 				return;
 			} else if (s < curNode->value) {
 				curNode = curNode->leftChild;
@@ -98,15 +101,16 @@ CustomString printTree(BSTSet::BSTNode *head) {
 	// std::cout << "now attempting to print tree" << std::endl; // DEBUGGING:
 	if (head == nullptr)
 		return "";
-	return printTree(head->leftChild) + "\'" + head->value + "\' " +
-		   printTree(head->rightChild);
+	return printTree(head->leftChild) + "\'" + colorText(head->value, "36") +
+		   "\' " + printTree(head->rightChild);
 }
 
 // Allow a set to be printed with cout
 std::ostream &operator<<(std::ostream &os, const BSTSet &set) {
 	// DONE: Make String function with std::cout
-	return os << "(BST Set of size " << set.set_size << "): ["
-			  << printTree(set.head) << "]";
+	return os << "(BST Set of size " << set.set_size
+			  << "): " << colorText("{", "33") << printTree(set.head)
+			  << colorText("}", "33");
 }
 
 void BSTSet::clear() {
