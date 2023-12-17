@@ -4,6 +4,9 @@
 
 ##### Finished: 11/12/2022
 
+## Project Description
+
+
 ## Folder Structure Explanation:
 
 > src folder - Contains the main .h and .cpp files needed to run the project. BSTSet, CustomString, and colorize, are all files that main depends on. Main holds the main loop of the program.
