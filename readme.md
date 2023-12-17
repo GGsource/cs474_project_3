@@ -1,4 +1,4 @@
-# Welcome to CS 474's Project 3
+# CS 474's Project 3: Binary Search Tree Calculator
 
 ## Author: Geo Gonzalez
 
