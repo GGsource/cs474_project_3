@@ -54,7 +54,7 @@ void printInstructions() {
 			  << std::endl;
 	std::cout << colorText("	i - Intersection", "34")
 			  << ". This command takes the set "
-				 "intersection of S1and S2 and stores the resulting value "
+				 "intersection of S1 and S2 and stores the resulting value "
 				 "in S1. The previous content of S1 is overriden. S2 is "
 				 "not modified by this operation."
 			  << std::endl;
