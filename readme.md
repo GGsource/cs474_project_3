@@ -22,8 +22,8 @@
 
 ### Option A
 
-1. If make is intalled on the local machine, simply typing `make` on the command line will run the project.
-2. If make is not installed but chocolatey package manager is, make can be installed with `choco install make`.
+1. If Make is intalled on the local machine, simply typing `make` on the command line will run the project.
+2. If Make is not installed but chocolatey package manager is, make can be installed with `choco install make`.
 
 ### Option B
 
